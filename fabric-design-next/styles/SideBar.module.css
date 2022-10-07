@@ -1,0 +1,25 @@
+.sideBar {
+    background-color: blue;
+    position: absolute;
+    height: 100vh;
+    width: 70px;
+}
+
+.sideBar ul {
+    list-style-type: none;
+    color: #FFF;
+    font-size: 35px;
+    text-align: center;
+    padding: 0;
+}
+
+.sideBar li:hover {
+    cursor: pointer;
+    color: red;
+    transition: .3s;
+}
+
+.sideBar li:last-child {
+    margin-top: 20px;
+}
+
