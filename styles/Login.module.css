@@ -1,0 +1,17 @@
+.container {
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(254,0,0);
+    background: linear-gradient(180deg, rgba(254,0,0,1) 30%, rgba(209,204,204,1) 50%, rgba(0,0,0,1) 70%); 
+}
+
+.container .cardMain {
+    background-color: #FFF;
+    padding: 120px;
+    border-radius: 30px;
+    width: 80vw;
+    height: 85vh;
+}

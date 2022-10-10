@@ -1,12 +1,20 @@
+// Link - Next
+import Image from 'next/image'
+
+// UseState - React
 import { useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+// useAuth - Firebase
 import { useAuth } from '../context/AuthUserContext';
 
-import {Container, Row, Col, Button, Form, FormGroup, Label, Input, Alert} from 'reactstrap';
+// CSS
+import Style from '../styles/Login.module.css';
 
-export default function Home() {
+// Components UI - Reactstrap
+import { Row, Col, Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
+
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -17,7 +25,6 @@ export default function Home() {
     setError(null)
     signInWithEmailAndPassword(email, password)
     .then(authUser => {
-      console.log("Success. The user is created in firebase")
       router.push('/logged_in');
     })
     .catch(error => {
@@ -27,15 +34,17 @@ export default function Home() {
   };
 
   return (
-    <Container className="text-center" style={{ padding: '40px 0px'}}>
-      <Row>
-        <Col>
-          <h2>Login</h2>
+    <section className={Style.container}>
+      <Row className={Style.cardMain}>
+        <Col md={6}>
+          <Image
+            src="/image.png"
+            layout="fill"
+          />
         </Col>
-      </Row>
-      <Row style={{maxWidth: '400px', margin: 'auto'}}>
-        <Col>
-          <Form onSubmit={onSubmit}>
+        <Col md={6}>
+        <h1>Entrar</h1>
+        <Form onSubmit={onSubmit}>
           { error && <Alert color="danger">{error}</Alert>}
             <FormGroup row>
               <Label for="loginEmail" sm={4}>Email</Label>
@@ -62,18 +71,13 @@ export default function Home() {
               </Col>
             </FormGroup>
             <FormGroup row>
-             <Col>
-               <Button>Login</Button>
-             </Col>
-           </FormGroup>
-           <FormGroup row>
-            <Col>
-              No account? <Link href="/sign_up">Create one</Link>
-            </Col>
-          </FormGroup>
+              <Col>
+                <Button>Login</Button>
+              </Col>
+            </FormGroup>
           </Form>
         </Col>
       </Row>
-    </Container>
+    </section>
   )
 }
